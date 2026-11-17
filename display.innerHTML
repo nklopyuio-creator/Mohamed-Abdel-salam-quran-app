@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المصحف الإلكتروني المتكامل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي المحدث بأربع صفحات -->
+    <nav class="navbar">
+        <button class="nav-btn active" onclick="switchPage('home')">🏠 الرئيسية</button>
+        <button class="nav-btn" onclick="switchPage('listen')">🔊 الاستماع</button>
+        <button class="nav-btn" onclick="switchPage('read')">📄 القراءة</button>
+        <button class="nav-btn" onclick="switchPage('developer')">👨‍💻 المطور</button>
+    </nav>
+
+    <div class="main-container">
+
+        <!-- ================= الصفحة الأولى: الرئيسية ================= -->
+        <div id="page-home" class="page active">
+            <div class="welcome-box">
+                <div class="quran-icon">📖</div>
+                <h1>المصحف الإلكتروني التفاعلي</h1>
+                <p>مرحباً بك في تطبيق القرآن الكريم الشامل. يمكنك الآن الاستماع لآيات الله البينات بأصوات مشاهير القراء أو تصفح وتدبر السور بالرسم العثماني الفاخر.</p>
+                <div class="features-list">
+                    <div class="feat-item" onclick="switchPage('listen')">🎙️ 114 سورة مسموعة بجودة عالية</div>
+                    <div class="feat-item" onclick="switchPage('read')">专 القراءة بالرسم العثماني الميسر</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= الصفحة الثانية: الاستماع ================= -->
+        <div id="page-listen" class="page">
+            <h1>🔊 مكتبة التلاوات الصوتية</h1>
+            <p class="subtitle">اختر قارئك المفضل والسورة للاستماع المباشر</p>
+            
+            <div class="card">
+                <label>اختر القارئ الشريف:</label>
+                <select id="reciterSelect">
+                    <option value="https://mp3quran.net">الشيخ محمد صديق المنشاوي</option>
+                    <option value="https://mp3quran.netّد/">الشيخ عبد الباسط عبد الصمد</option>
+                    <option value="https://mp3quran.net">الشيخ محمود خليل الحصري</option>
+                    <option value="https://mp3quran.net">الشيخ ماهر المعيقلي</option>
+                </select>
+            </div>
+
+            <div class="card">
+                <label>اختر السورة الكريمة:</label>
+                <select id="audioSurahSelect"></select>
+            </div>
+
+            <button class="btn-green" onclick="playAudio()">تشغيل التلاوة المرتلة 🎙️</button>
+            <div class="audio-player-wrapper">
+                <audio id="audioPlayer" controls></audio>
+            </div>
+        </div>
+
+        <!-- ================= الصفحة الثالثة: القراءة ================= -->
+        <div id="page-read" class="page">
+            <h1>📄 مصحف التلاوة والتدبر</h1>
+            <p class="subtitle">تصفح سور القرآن الكريم بالرسم العثماني الموثوق</p>
+            
+            <div class="card">
+                <label>اختر السورة المراد قراءتها:</label>
+                <select id="readSurahSelect"></select>
+            </div>
+
+            <button class="btn-green" onclick="fetchSurahText()">عرض آيات السورة الكريمة 📖</button>
+            <div id="quranDisplay" class="quran-box">يرجى تحديد السورة من القائمة بالأعلى لعرض آياتها هنا...</div>
+        </div>
+
+        <!-- ================= الواجهة المضافة: صفحة المطور ================= -->
+        <div id="page-developer" class="page">
+            <div class="dev-card">
+                <div class="dev-avatar">👤</div>
+                <h2 class="dev-name">محمد عبدالسلام السعيد شاهين</h2>
+                <p class="dev-title">مطور ومهندس تطبيقات الذكاء الاصطناعي والويب</p>
+                <div class="dev-divider"></div>
+                <p class="dev-bio">تم تطوير هذا التطبيق القرآني التفاعلي لخدمة المسلمين وتيسير قراءة وتدبر المصحف الشريف بالاستعانة بالتقنيات البرمجية الحديثة الخفيفة والسريعة المتوافقة مع كافة الهواتف والشاشات.</p>
+                <div class="dev-badge">نسخة التطبيق الحالية: v2.0 المستقرة</div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
